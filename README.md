@@ -99,13 +99,20 @@ Return:     b
 ```
 
 ### have four of a kind
-``` 四个相同的
+``` 
+// 四个相同的 VS 三个相同，一个对子
 Given:      a = "5H 9C 9H 9D 9S"    b = "6H 3H 6S 3D 3S"
 Return:     a
 ```
-``` 四个相同的
+``` 
+// 四个相同的
 Given:      a = "5H 9C 9H 9D 9S"    b = "3H QC QH QD QS"
 Return:     b
+```
+``` 
+// 四个相同的
+Given:      a = "5H 9C 9H 9D 9S"    b = "3D 9C 9H 9D 9S"
+Return:     a
 ```
 
 ### straight flush

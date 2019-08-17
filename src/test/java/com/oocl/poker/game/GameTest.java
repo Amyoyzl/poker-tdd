@@ -196,6 +196,16 @@ public class GameTest {
     }
 
     @Test
+    public void should_return_bigger_one_four_of_kind_pair_pokers() {
+        String a = "5H 9C 9H 9D 9S";
+        String b = "3D 9C 9H 9D 9S";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, a);
+    }
+
+    @Test
     public void should_return_straight_flush_compare_four_of_kind_pair_pokers() {
         String a = "5H 9C 9H 9D 9S";
         String b = "3S 4S 5S 6S 7S";
