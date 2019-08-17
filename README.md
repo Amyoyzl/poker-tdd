@@ -53,4 +53,10 @@ Given:      a = "5H 3H 9H TH QH"    b = "9H 2H 6H 5H 3H"
 Return:     a
 ```
 
+### have full house
+``` 三个相同，一个对子
+Given:      a = "5H 3H 9H TH QH"   b = "6H 3H 6S 3D 3S"
+Return:     b
+```
+
 

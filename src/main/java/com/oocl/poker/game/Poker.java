@@ -37,6 +37,7 @@ public class Poker {
         if (pairNumber == 2) { wight = 2; }
         int threeNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item)==3).collect(Collectors.toList()).size();
         if (threeNumber == 1) { wight = 3; }
+        if (threeNumber == 1 && pairNumber == 1) { wight = 6; }
     }
 
     public boolean isFlush() {

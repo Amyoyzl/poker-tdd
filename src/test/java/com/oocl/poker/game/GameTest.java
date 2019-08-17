@@ -105,4 +105,14 @@ public class GameTest {
         assertEquals(winner, a);
     }
 
+    @Test
+    public void should_return_have_full_house_pair_pokers() {
+        String a = "5H 3H 9H TH QH";
+        String b = "6H 3H 6S 3D 3S";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, b);
+    }
+
 }
