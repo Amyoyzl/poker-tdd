@@ -116,11 +116,18 @@ Return:     a
 ```
 
 ### straight flush
-``` 同花顺
+``` 
+// 同花顺 VS 四个相同的
 Given:      a = "5H 9C 9H 9D 9S"    b = "3S 4S 5S 6S 7S"
 Return:     b
 ```
-``` 同花顺
+``` 
+// 同花顺
 Given:      a = "6D 7D 8D 9D TD"    b = "3S 4S 5S 6S 7S"
 Return:     a
+```
+``` 
+// 同花顺
+Given:      a = "6D 7D 8D 9D TD"    b = "6S 7S 8S 9S TS"
+Return:     "Draw"
 ```

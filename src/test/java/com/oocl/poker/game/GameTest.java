@@ -225,4 +225,14 @@ public class GameTest {
         assertEquals(winner, a);
     }
 
+    @Test
+    public void should_return_draw_compare_straight_flush_pair_pokers() {
+        String a = "6D 7D 8D 9D TD";
+        String b = "6S 7S 8S 9S TS";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, Game.DRAW);
+    }
+
 }
