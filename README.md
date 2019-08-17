@@ -50,6 +50,10 @@ Return:     b
 Given:      a = "2C 6S 5H 2D QS"    b = "KH 3H 6S 3D 3S"
 Return:     b
 ```
+``` 三张牌一样
+Given:      a = "2C 6S 6H 6D QS"    b = "KH 3H 6S 3D 3S"
+Return:     a
+```
 
 ### have straight
 ``` 有顺子

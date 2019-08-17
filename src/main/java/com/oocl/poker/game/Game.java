@@ -14,12 +14,8 @@ public class Game {
         if (pokerA.getCards().size() != pokerB.getCards().size()) {
             return "双方牌数量不一致！";
         }
-        if (pokerA.getWight() > pokerB.getWight()) {
-            return a;
-        }
-        if (pokerA.getWight() < pokerB.getWight()) {
-            return b;
-        }
+        if (pokerA.getWight() > pokerB.getWight()) { return a; }
+        if (pokerA.getWight() < pokerB.getWight()) { return b; }
         int sameCardNumber = 1;
         if (pokerA.getWight() == Poker.PAIR || pokerA.getWight() == Poker.TWO_PAIRS) { sameCardNumber = 2; }
         if (pokerA.getWight() == Poker.THREE_OF_KIND || pokerA.getWight() == Poker.FULL_HOUSE) { sameCardNumber = 3; }
