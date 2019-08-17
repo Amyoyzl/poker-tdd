@@ -63,4 +63,10 @@ Given:      a = "5H 5S 9H 9D 9S"    b = "6H 3H 6S 3D 3S"
 Return:     a
 ```
 
+### have four of a kind
+``` 四个相同的
+Given:      a = "5H 9C 9H 9D 9S"    b = "6H 3H 6S 3D 3S"
+Return:     a
+```
+
 

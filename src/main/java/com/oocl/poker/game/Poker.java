@@ -32,12 +32,14 @@ public class Poker {
                 cardsMap.put(card, 1);
             }
         }
-        int pairNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item)==2).collect(Collectors.toList()).size();
+        int pairNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == 2).collect(Collectors.toList()).size();
         if (pairNumber == 1) { wight = 1; }
         if (pairNumber == 2) { wight = 2; }
-        int threeNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item)==3).collect(Collectors.toList()).size();
+        int threeNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == 3).collect(Collectors.toList()).size();
         if (threeNumber == 1) { wight = 3; }
         if (threeNumber == 1 && pairNumber == 1) { wight = 6; }
+        int fourNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == 4).collect(Collectors.toList()).size();
+        if (fourNumber == 1) { wight = 7; }
     }
 
     public boolean isFlush() {
