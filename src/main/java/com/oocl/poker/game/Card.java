@@ -7,7 +7,7 @@ public class Card implements Comparable {
     private char rank;
     private char suit;
 
-    private final static List<Character> orders = Arrays.asList(new Character[]{'2','3','4','5','6','7','8','9','T','J','Q','K','A'});
+    public final static List<Character> orders = Arrays.asList(new Character[]{'2','3','4','5','6','7','8','9','T','J','Q','K','A'});
 
     public Card(char rank, char suit) {
         this.rank = rank;

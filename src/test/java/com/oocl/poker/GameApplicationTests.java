@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PokerApplicationTests {
+public class GameApplicationTests {
 
     @Test
     public void contextLoads() {
