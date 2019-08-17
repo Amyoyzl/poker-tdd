@@ -1,8 +1,13 @@
 package com.oocl.poker.game;
 
-public class Card {
+import java.util.Arrays;
+import java.util.List;
+
+public class Card implements Comparable {
     private char rank;
     private char suit;
+
+    private final static List<Character> orders = Arrays.asList(new Character[]{'2','3','4','5','6','7','8','9','T','J','Q','K','A'});
 
     public Card(char rank, char suit) {
         this.rank = rank;
@@ -16,5 +21,11 @@ public class Card {
     @Override
     public String toString() {
         return "" + rank + suit;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Card card = (Card) o;
+        return orders.indexOf(this.getRank()) - orders.indexOf(card.getRank());
     }
 }

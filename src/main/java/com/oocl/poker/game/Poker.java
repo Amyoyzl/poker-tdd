@@ -1,26 +1,42 @@
 package com.oocl.poker.game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Poker {
-    private final static List<Character> orders = Arrays.asList(new Character[]{'2','3','4','5','6','7','8','9','T','J','Q','K','A'});
+
+    public final static String DRAW = "Draw";
+
     public String compare(String a, String b) {
         List<Card> cardsA = changeToCard(a);
         List<Card> cardsB = changeToCard(b);
         if (1 == cardsA.size() && 1 == cardsB.size()) {
             return compareOne(cardsA.get(0), cardsB.get(0));
         }
-        return "";
+        if (cardsA.size() != cardsB.size()) {
+            return "双方牌数量不一致！";
+        }
+        Collections.sort(cardsA);
+        Collections.sort(cardsB);
+        for (int i = cardsA.size() - 1; i >= 0; i --) {
+            if (cardsA.get(i).compareTo(cardsB.get(i)) == 0) {
+                continue;
+            }
+            if (cardsA.get(i).compareTo(cardsB.get(i)) > 0) {
+                return a;
+            }
+            return b;
+        }
+        return DRAW;
     }
 
     private String compareOne(Card cardA, Card cardB) {
-        if (orders.indexOf(cardA.getRank()) > orders.indexOf(cardB.getRank())) {
+        if (cardA.compareTo(cardB) > 0) {
             return cardA.toString();
         }
-        if (orders.indexOf(cardA.getRank()) == orders.indexOf(cardB.getRank())) {
-            return "Draw";
+        if (cardA.compareTo(cardB) == 0) {
+            return DRAW;
         }
         return cardB.toString();
     }
