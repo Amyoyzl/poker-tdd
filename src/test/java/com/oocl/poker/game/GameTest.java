@@ -26,6 +26,16 @@ public class GameTest {
     }
 
     @Test
+    public void should_return_draw_pokers_given_two_poker_list() {
+        String a = "2C 6S 5H 3D QS";
+        String b = "2C 6D 5H 3D QD";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, Game.DRAW);
+    }
+
+    @Test
     public void should_return_have_pair_pokers_given_two_poker_list() {
         String a = "2C 6S 5H 2D QS";
         String b = "KH 7H 6S 9D 3S";
