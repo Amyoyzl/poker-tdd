@@ -78,3 +78,7 @@ Return:     b
 Given:      a = "5H 9C 9H 9D 9S"    b = "3S 4S 5S 6S 7S"
 Return:     b
 ```
+``` 同花顺
+Given:      a = "6D 7D 8D 9D TD"    b = "3S 4S 5S 6S 7S"
+Return:     a
+```

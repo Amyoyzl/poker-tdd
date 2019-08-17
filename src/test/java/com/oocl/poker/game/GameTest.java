@@ -155,4 +155,14 @@ public class GameTest {
         assertEquals(winner, b);
     }
 
+    @Test
+    public void should_return_bigger_straight_flush_compare_pair_pokers() {
+        String a = "6D 7D 8D 9D TD";
+        String b = "3S 4S 5S 6S 7S";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, a);
+    }
+
 }
