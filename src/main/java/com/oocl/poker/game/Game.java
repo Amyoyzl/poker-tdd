@@ -12,10 +12,13 @@ public class Game {
         }
         if (pokerA.getWight() > pokerB.getWight()) { return a; }
         if (pokerA.getWight() < pokerB.getWight()) { return b; }
-        if (pokerA.getMax() == pokerB.getMax()) {
-            return DRAW;
+        if (pokerA.getMultiCardsMax() == pokerB.getMultiCardsMax()) {
+            if (pokerA.getCardsMax() == pokerB.getCardsMax()) {
+                return DRAW;
+            }
+            return pokerA.getCardsMax() > pokerB.getCardsMax() ? a : b;
         }
-        return pokerA.getMax() > pokerB.getMax() ? a : b;
+        return pokerA.getMultiCardsMax() > pokerB.getMultiCardsMax() ? a : b;
     }
 
 }

@@ -11,7 +11,6 @@ public class Poker {
 
     public Poker(String s) {
         setCards(s);
-        setMax();
         setWight();
     }
 
@@ -30,8 +29,8 @@ public class Poker {
         }
     }
 
-    public void setMax() {
-        max = Card.orders.indexOf(cards.get(cards.size() - 1).getRank());
+    public int getCardsMax() {
+        return Card.orders.indexOf(cards.get(cards.size() - 1).getRank());
     }
 
     public List<Card> getCards() {
@@ -53,7 +52,7 @@ public class Poker {
         Collections.sort(cards);
     }
 
-    public int getMax() {
+    public int getMultiCardsMax() {
         return max;
     }
 

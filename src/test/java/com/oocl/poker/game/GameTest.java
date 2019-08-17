@@ -45,4 +45,14 @@ public class GameTest {
         assertEquals(winner, a);
     }
 
+    @Test
+    public void should_return_have_bigger_one_pair_pokers_given_two_pokers_all_have_same_pair() {
+        String a = "2C 3S 5H 3D QS";
+        String b = "KH 7H 6S 3D 3S";
+
+        String winner = new Game().compare(a,b);
+
+        assertEquals(winner, b);
+    }
+
 }
