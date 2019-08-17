@@ -7,24 +7,33 @@ public class Poker {
     private List<Card> cards;
     private int wight;
     private Map<Card, Integer> cardsMap = new TreeMap<>();
+    public final static int PAIR = 1;
+    public final static int TWO_PAIRS = 2;
+    public final static int THREE_OF_KIND = 3;
+    public final static int STRAIGHT = 4;
+    public final static int FLUSH = 5;
+    public final static int FULL_HOUSE = 6;
+    public final static int FOUR_OF_KIND = 7;
+    public final static int STRAIGHT_FLUSH = 8;
 
     public Poker(String s) {
         setCards(s);
+        setCardsMap();
         setWight();
     }
 
     public void setWight() {
         calcWightBySameCards();
-        if (isStraight()) { wight = 4; }
-        if (isFlush()) { wight = 5; }
-        if (isFlush() && isStraight()) { wight = 8; }
+        if (isStraight()) { wight = STRAIGHT; }
+        if (isFlush()) { wight = FLUSH; }
+        if (isFlush() && isStraight()) { wight = STRAIGHT_FLUSH; }
     }
 
     public Map<Card, Integer> getCardsMap() {
         return cardsMap;
     }
 
-    public void calcWightBySameCards () {
+    public void setCardsMap() {
         for (Card card : cards) {
             Integer count = cardsMap.get(card);
             if(count != null){
@@ -33,14 +42,17 @@ public class Poker {
                 cardsMap.put(card, 1);
             }
         }
+    }
+
+    public void calcWightBySameCards () {
         int pairNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == 2).collect(Collectors.toList()).size();
-        if (pairNumber == 1) { wight = 1; }
-        if (pairNumber == 2) { wight = 2; }
+        if (pairNumber == 1) { wight = PAIR; }
+        if (pairNumber == 2) { wight = TWO_PAIRS; }
         int threeNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == 3).collect(Collectors.toList()).size();
-        if (threeNumber == 1) { wight = 3; }
-        if (threeNumber == 1 && pairNumber == 1) { wight = 6; }
+        if (threeNumber == 1) { wight = THREE_OF_KIND; }
+        if (threeNumber == 1 && pairNumber == 1) { wight = FULL_HOUSE; }
         int fourNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == 4).collect(Collectors.toList()).size();
-        if (fourNumber == 1) { wight = 7; }
+        if (fourNumber == 1) { wight = FOUR_OF_KIND; }
     }
 
     public boolean isFlush() {
@@ -58,7 +70,7 @@ public class Poker {
         for (int i = 0; i < cards.size() - 1; i++) {
             char preCardRank = cards.get(i).getRank();
             char nextCardRank = cards.get(i + 1).getRank();
-            if(Card.orders.indexOf(preCardRank) + 1 != Card.orders.indexOf(nextCardRank)) {
+            if(Card.ORDERS.indexOf(preCardRank) + 1 != Card.ORDERS.indexOf(nextCardRank)) {
                 return false;
             }
         }
