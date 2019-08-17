@@ -31,3 +31,9 @@ Given:      a = "2C 6S 5H 2D QS"    b = "KH 3H 6S 3D 3S"
 Return:     b
 ```
 
+### have straight
+``` 有顺子
+Given:      a = "2C 6S 5H 3D 4S"    b = "KH 3H 6S 3D 3S"
+Return:     a
+```
+

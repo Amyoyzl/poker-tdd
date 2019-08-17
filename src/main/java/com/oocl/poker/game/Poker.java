@@ -24,9 +24,21 @@ public class Poker {
             }
         }
         wight = count > 2 ? 2 : ((count > 1) ? 1 : 0);
+        if (isStraight()) { wight = 3; }
         if (maxCard != null) {
             max = Card.orders.indexOf(maxCard.getRank());
         }
+    }
+
+    public boolean isStraight() {
+        for (int i = 0; i < cards.size() - 1; i++) {
+            char preCardRank = cards.get(i).getRank();
+            char nextCardRank = cards.get(i + 1).getRank();
+            if(Card.orders.indexOf(preCardRank) + 1 != Card.orders.indexOf(nextCardRank)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public int getCardsMax() {
