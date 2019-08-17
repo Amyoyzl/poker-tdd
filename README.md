@@ -10,3 +10,10 @@ Return:     b
 Given:      a = "2C 6S 5H 3D QS"    b = "KH 7H 6S 9D 3S"
 Return:     b
 ```
+
+### pair poker
+```
+Given:      a = "2C 6S 5H 2D QS"    b = "KH 7H 6S 9D 3S"
+Return:     a
+```
+

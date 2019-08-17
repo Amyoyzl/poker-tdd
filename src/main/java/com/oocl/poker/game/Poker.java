@@ -3,6 +3,7 @@ package com.oocl.poker.game;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Poker {
 
@@ -12,33 +13,34 @@ public class Poker {
         List<Card> cardsA = changeToCard(a);
         List<Card> cardsB = changeToCard(b);
         if (1 == cardsA.size() && 1 == cardsB.size()) {
-            return compareOne(cardsA.get(0), cardsB.get(0));
+            if (cardsA.get(0).compareTo(cardsB.get(0)) == 0) { return DRAW; }
+            return cardsA.get(0).compareTo(cardsB.get(0)) > 0 ? a : b;
         }
         if (cardsA.size() != cardsB.size()) {
             return "双方牌数量不一致！";
         }
         Collections.sort(cardsA);
         Collections.sort(cardsB);
+        if (hasPair(cardsA) && !hasPair(cardsB)) {
+            return a;
+        }
+        if (!hasPair(cardsA) && hasPair(cardsB)) {
+            return b;
+        }
         for (int i = cardsA.size() - 1; i >= 0; i --) {
             if (cardsA.get(i).compareTo(cardsB.get(i)) == 0) {
                 continue;
             }
-            if (cardsA.get(i).compareTo(cardsB.get(i)) > 0) {
-                return a;
-            }
-            return b;
+            return cardsA.get(i).compareTo(cardsB.get(i)) > 0 ? a : b;
         }
         return DRAW;
     }
 
-    private String compareOne(Card cardA, Card cardB) {
-        if (cardA.compareTo(cardB) > 0) {
-            return cardA.toString();
+    private boolean hasPair (List<Card> cards) {
+        if(cards.stream().distinct().count() == cards.size() - 1) {
+            return true;
         }
-        if (cardA.compareTo(cardB) == 0) {
-            return DRAW;
-        }
-        return cardB.toString();
+        return false;
     }
 
     private List<Card> changeToCard(String cardsStr) {

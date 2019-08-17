@@ -25,4 +25,14 @@ public class PokerTest {
         assertEquals(winner, b);
     }
 
+    @Test
+    public void should_return_have_pair_pokers_given_two_poker_list() {
+        String a = "2C 6S 5H 2D QS";
+        String b = "KH 7H 6S 9D 3S";
+
+        String winner = new Poker().compare(a,b);
+
+        assertEquals(winner, a);
+    }
+
 }

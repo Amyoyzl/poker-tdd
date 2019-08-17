@@ -28,4 +28,14 @@ public class Card implements Comparable {
         Card card = (Card) o;
         return orders.indexOf(this.getRank()) - orders.indexOf(card.getRank());
     }
+
+    @Override
+    public int hashCode() {
+        return this.getRank();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.getRank() == ((Card) obj).getRank();
+    }
 }
