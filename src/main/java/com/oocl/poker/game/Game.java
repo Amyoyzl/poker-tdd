@@ -24,6 +24,7 @@ public class Game {
         int count = 1;
         if (pokerA.getWight() == 1 || pokerA.getWight() == 2) { count = 2; }
         if (pokerA.getWight() == 3 || pokerA.getWight() == 6) { count = 3; }
+        if (pokerA.getWight() == 7) { count = 4; }
         compareOneResult = compareOne(getGroupCards(pokerA.getCardsMap(), count),
                 getGroupCards(pokerB.getCardsMap(), count));
         if (compareOneResult == 0) {
@@ -42,14 +43,8 @@ public class Game {
 
     public int compareOne(List<Card> pokerA, List<Card> pokerB) {
         for (int i = pokerA.size() - 1; i >= 0; i--) {
-            int cardA = Card.orders.indexOf(pokerA.get(i).getRank());
-            int cardB = Card.orders.indexOf(pokerB.get(i).getRank());
-            if (cardA > cardB) {
-                return 1;
-            }
-            if (cardA < cardB) {
-                return -1;
-            }
+            if (pokerA.get(i).compareTo(pokerB.get(i)) > 0) { return 1; }
+            if (pokerA.get(i).compareTo(pokerB.get(i)) < 0) { return -1; }
         }
         return 0;
     }

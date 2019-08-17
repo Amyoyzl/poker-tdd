@@ -135,4 +135,14 @@ public class GameTest {
         assertEquals(winner, a);
     }
 
+    @Test
+    public void should_return_bigger_four_of_kind_pair_pokers() {
+        String a = "5H 9C 9H 9D 9S";
+        String b = "3H QC QH QD QS";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, b);
+    }
+
 }
