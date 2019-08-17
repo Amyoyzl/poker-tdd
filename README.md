@@ -37,3 +37,9 @@ Given:      a = "2C 6S 5H 3D 4S"    b = "KH 3H 6S 3D 3S"
 Return:     a
 ```
 
+### have flush
+``` 同花色
+Given:      a = "2C 6S 5H 3D 4S"    b = "9H 2H 6H 5H 3H"
+Return:     b
+```
+

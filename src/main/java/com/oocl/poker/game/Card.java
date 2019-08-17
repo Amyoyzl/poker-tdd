@@ -18,6 +18,10 @@ public class Card implements Comparable {
         return rank;
     }
 
+    public char getSuit() {
+        return suit;
+    }
+
     @Override
     public String toString() {
         return "" + rank + suit;

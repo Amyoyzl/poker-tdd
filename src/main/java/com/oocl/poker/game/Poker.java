@@ -25,9 +25,21 @@ public class Poker {
         }
         wight = count > 2 ? 2 : ((count > 1) ? 1 : 0);
         if (isStraight()) { wight = 3; }
+        if (isFlush()) { wight = 4; }
         if (maxCard != null) {
             max = Card.orders.indexOf(maxCard.getRank());
         }
+    }
+
+    public boolean isFlush() {
+        for (int i = 0; i < cards.size() - 1; i++) {
+            char preCardSuit = cards.get(i).getSuit();
+            char nextCardSuit = cards.get(i + 1).getSuit();
+            if(preCardSuit != nextCardSuit) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean isStraight() {
