@@ -58,5 +58,9 @@ Return:     a
 Given:      a = "5H 3H 9H TH QH"   b = "6H 3H 6S 3D 3S"
 Return:     b
 ```
+``` 三个相同，一个对子
+Given:      a = "5H 5S 9H 9D 9S"    b = "6H 3H 6S 3D 3S"
+Return:     a
+```
 
 

@@ -23,12 +23,13 @@ public class Game {
         int compareOneResult = 0;
         int count = 1;
         if (pokerA.getWight() == 1 || pokerA.getWight() == 2) { count = 2; }
-        if (pokerA.getWight() == 3) { count = 3; }
+        if (pokerA.getWight() == 3 || pokerA.getWight() == 6) { count = 3; }
         compareOneResult = compareOne(getGroupCards(pokerA.getCardsMap(), count),
                 getGroupCards(pokerB.getCardsMap(), count));
         if (compareOneResult == 0) {
-            int compareCardsResult = compareOne(getGroupCards(pokerA.getCardsMap(), 1),
-                    getGroupCards(pokerB.getCardsMap(), 1));
+            count = pokerA.getWight() == 6 ? 2 : 1;
+            int compareCardsResult = compareOne(getGroupCards(pokerA.getCardsMap(), count),
+                    getGroupCards(pokerB.getCardsMap(), count));
             if (compareCardsResult == 0) { return DRAW; }
             return compareCardsResult > 0 ? a : b;
         }
