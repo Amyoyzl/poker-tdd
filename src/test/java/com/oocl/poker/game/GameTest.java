@@ -10,7 +10,7 @@ public class GameTest {
         String a = "6C";
         String b = "TH";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, b);
     }
@@ -20,7 +20,7 @@ public class GameTest {
         String a = "2C 6S 5H 3D QS";
         String b = "KH 7H 6S 9D 3S";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, b);
     }
@@ -30,7 +30,7 @@ public class GameTest {
         String a = "2C 6S 5H 2D QS";
         String b = "KH 7H 6S 9D 3S";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, a);
     }
@@ -40,7 +40,7 @@ public class GameTest {
         String a = "2C 6S 5H 6D QS";
         String b = "KH 7H 6S 3D 3S";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, a);
     }
@@ -50,9 +50,19 @@ public class GameTest {
         String a = "2C 3S 5H 3D QS";
         String b = "KH 7H 6S 3D 3S";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, b);
+    }
+
+    @Test
+    public void should_return_have_two_pairs_pokers() {
+        String a = "2C 3S 5H 3D 5S";
+        String b = "KH 5H 6S 3D 3S";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, a);
     }
 
     @Test
@@ -60,7 +70,7 @@ public class GameTest {
         String a = "2C 6S 5H 2D QS";
         String b = "KH 3H 6S 3D 3S";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, b);
     }
@@ -70,7 +80,7 @@ public class GameTest {
         String a = "2C 6S 5H 3D 4S";
         String b = "KH 3H 6S 3D 3S";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, a);
     }
@@ -80,7 +90,7 @@ public class GameTest {
         String a = "2C 6S 5H 3D 4S";
         String b = "9H 2H 6H 5H 3H";
 
-        String winner = new Game().compare(a,b);
+        String winner = new Game().compare(a, b);
 
         assertEquals(winner, b);
     }

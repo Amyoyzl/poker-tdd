@@ -1,13 +1,12 @@
 package com.oocl.poker.game;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Poker {
     private List<Card> cards;
     private int wight;
-    private int max;
+    private Map<Character, Integer> cardsMap = new HashMap<Character, Integer>();
 
     public Poker(String s) {
         setCards(s);
@@ -15,20 +14,29 @@ public class Poker {
     }
 
     public void setWight() {
-        int count = 1;
-        Card maxCard = null;
-        for (int i = 0; i < cards.size() - 1; i++) {
-            if (cards.get(i).equals(cards.get(i + 1))) {
-                count++;
-                maxCard = cards.get(i);
+        calcWightBySameCards();
+        if (isStraight()) { wight = 4; }
+        if (isFlush()) { wight = 5; }
+    }
+
+    public Map<Character, Integer> getCardsMap() {
+        return cardsMap;
+    }
+
+    public void calcWightBySameCards () {
+        for (Card card : cards) {
+            Integer count = cardsMap.get(card.getRank());
+            if(count != null){
+                cardsMap.put(card.getRank(), ++count);
+            }else{
+                cardsMap.put(card.getRank(), 1);
             }
         }
-        wight = count > 2 ? 2 : ((count > 1) ? 1 : 0);
-        if (isStraight()) { wight = 3; }
-        if (isFlush()) { wight = 4; }
-        if (maxCard != null) {
-            max = Card.orders.indexOf(maxCard.getRank());
-        }
+        int pairNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item)==2).collect(Collectors.toList()).size();
+        if (pairNumber == 1) { wight = 1; }
+        if (pairNumber == 2) { wight = 2; }
+        int threeNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item)==3).collect(Collectors.toList()).size();
+        if (threeNumber == 1) { wight = 3; }
     }
 
     public boolean isFlush() {
@@ -53,10 +61,6 @@ public class Poker {
         return true;
     }
 
-    public int getCardsMax() {
-        return Card.orders.indexOf(cards.get(cards.size() - 1).getRank());
-    }
-
     public List<Card> getCards() {
         return cards;
     }
@@ -74,10 +78,6 @@ public class Poker {
             }
         }
         Collections.sort(cards);
-    }
-
-    public int getMultiCardsMax() {
-        return max;
     }
 
     public int getWight() {
