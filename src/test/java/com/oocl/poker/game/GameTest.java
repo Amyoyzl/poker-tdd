@@ -76,6 +76,16 @@ public class GameTest {
     }
 
     @Test
+    public void should_return_bigger_all_have_two_pairs_pokers() {
+        String a = "2C 3S 5H 3D 5S";
+        String b = "KH 6H 6S 3D 3S";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, b);
+    }
+
+    @Test
     public void should_return_have_treeSameCards_pair_pokers() {
         String a = "2C 6S 5H 2D QS";
         String b = "KH 3H 6S 3D 3S";

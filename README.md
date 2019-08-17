@@ -10,29 +10,39 @@ Return:     b
 Given:      a = "2C 6S 5H 3D QS"    b = "KH 7H 6S 9D 3S"
 Return:     b
 ```
-```
+``` 
+// 平局
 Given:      a = "2C 6S 5H 3D QS"    b = "2C 6D 5H 3D QD"
 Return:     "Draw"
 ```
 
 ### pair poker
-``` 一个有对子，一个没对子
+``` 
+// 一个有对子，一个没对子
 Given:      a = "2C 6S 5H 2D QS"    b = "KH 7H 6S 9D 3S"
 Return:     a
 ```
-``` 两个都是对子
+``` 
+// 两个都有对子
 Given:      a = "2C 6S 5H 6D QS"    b = "KH 7H 6S 3D 3S"
 Return:     a
 ```
-``` 两个都是对子且对子一样
+``` 
+// 两个都有对子且对子一样
 Given:      a = "2C 3S 5H 3D QS"    b = "KH 7H 6S 3D 3S"
 Return:     b
 ```
 
 ### two pair
-``` 有两个对子
+``` 
+// 一个有两个对子， 一个只有一个对子
 Given:      a = "2C 3S 5H 3D 5S"    b = "KH 5H 6S 3D 3S"
 Return:     a
+```
+``` 
+// 两个人都有两个对子
+Given:      a = "2C 3S 5H 3D 5S"    b = "KH 6H 6S 3D 3S"
+Return:     b
 ```
 
 ### three cards same
