@@ -95,4 +95,14 @@ public class GameTest {
         assertEquals(winner, b);
     }
 
+    @Test
+    public void should_return_bigger_flush_pair_pokers() {
+        String a = "5H 3H 9H TH QH";
+        String b = "9H 2H 6H 5H 3H";
+
+        String winner = new Game().compare(a, b);
+
+        assertEquals(winner, a);
+    }
+
 }

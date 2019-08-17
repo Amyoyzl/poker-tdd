@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class Poker {
     private List<Card> cards;
     private int wight;
-    private Map<Character, Integer> cardsMap = new HashMap<Character, Integer>();
+    private Map<Card, Integer> cardsMap = new TreeMap<>();
 
     public Poker(String s) {
         setCards(s);
@@ -19,17 +19,17 @@ public class Poker {
         if (isFlush()) { wight = 5; }
     }
 
-    public Map<Character, Integer> getCardsMap() {
+    public Map<Card, Integer> getCardsMap() {
         return cardsMap;
     }
 
     public void calcWightBySameCards () {
         for (Card card : cards) {
-            Integer count = cardsMap.get(card.getRank());
+            Integer count = cardsMap.get(card);
             if(count != null){
-                cardsMap.put(card.getRank(), ++count);
+                cardsMap.put(card, ++count);
             }else{
-                cardsMap.put(card.getRank(), 1);
+                cardsMap.put(card, 1);
             }
         }
         int pairNumber = cardsMap.keySet().stream().filter(item -> cardsMap.get(item)==2).collect(Collectors.toList()).size();

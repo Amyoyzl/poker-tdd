@@ -35,14 +35,14 @@ public class Game {
         return compareOneResult > 0 ? a : b;
     }
 
-    public List getGroupCards(Map<Character, Integer> cardsMap, int count) {
-        return cardsMap.keySet().stream().filter(rank -> cardsMap.get(rank) == count).collect(Collectors.toList());
+    public List getGroupCards(Map<Card, Integer> cardsMap, int count) {
+        return cardsMap.keySet().stream().filter(item -> cardsMap.get(item) == count).collect(Collectors.toList());
     }
 
-    public int compareOne(List pokerA, List pokerB) {
+    public int compareOne(List<Card> pokerA, List<Card> pokerB) {
         for (int i = pokerA.size() - 1; i >= 0; i--) {
-            int cardA = Card.orders.indexOf(pokerA.get(i));
-            int cardB = Card.orders.indexOf(pokerB.get(i));
+            int cardA = Card.orders.indexOf(pokerA.get(i).getRank());
+            int cardB = Card.orders.indexOf(pokerB.get(i).getRank());
             if (cardA > cardB) {
                 return 1;
             }

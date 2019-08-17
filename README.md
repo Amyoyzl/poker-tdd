@@ -48,4 +48,9 @@ Return:     a
 Given:      a = "2C 6S 5H 3D 4S"    b = "9H 2H 6H 5H 3H"
 Return:     b
 ```
+``` 同花色
+Given:      a = "5H 3H 9H TH QH"    b = "9H 2H 6H 5H 3H"
+Return:     a
+```
+
 
