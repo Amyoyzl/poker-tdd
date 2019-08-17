@@ -70,23 +70,32 @@ Return:     b
 ```
 
 ### have flush
-``` 同花色
+``` 
+// 同花色 VS 顺子
 Given:      a = "2C 6S 5H 3D 4S"    b = "9H 2H 6H 5H 3H"
 Return:     b
 ```
-``` 同花色
+``` 
+// 同花色
 Given:      a = "5H 3H 9H TH QH"    b = "9H 2H 6H 5H 3H"
 Return:     a
 ```
 
 ### have full house
-``` 三个相同，一个对子
+``` 
+// 三个相同，一个对子 VS 同花
 Given:      a = "5H 3H 9H TH QH"   b = "6H 3H 6S 3D 3S"
 Return:     b
 ```
-``` 三个相同，一个对子
+``` 
+// 三个相同，一个对子
 Given:      a = "5H 5S 9H 9D 9S"    b = "6H 3H 6S 3D 3S"
 Return:     a
+```
+``` 
+// 三个相同，一个对子
+Given:      a = "5H 5S 3H 3D 3S"    b = "6H 3H 6S 3D 3S"
+Return:     b
 ```
 
 ### have four of a kind
