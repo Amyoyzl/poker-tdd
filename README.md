@@ -73,3 +73,8 @@ Given:      a = "5H 9C 9H 9D 9S"    b = "3H QC QH QD QS"
 Return:     b
 ```
 
+### straight flush
+``` 同花顺
+Given:      a = "5H 9C 9H 9D 9S"    b = "3S 4S 5S 6S 7S"
+Return:     b
+```

@@ -17,6 +17,7 @@ public class Poker {
         calcWightBySameCards();
         if (isStraight()) { wight = 4; }
         if (isFlush()) { wight = 5; }
+        if (isFlush() && isStraight()) { wight = 8; }
     }
 
     public Map<Card, Integer> getCardsMap() {
