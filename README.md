@@ -131,3 +131,9 @@ Return:     a
 Given:      a = "6D 7D 8D 9D TD"    b = "6S 7S 8S 9S TS"
 Return:     "Draw"
 ```
+
+### error pokers
+``` 
+Given:      a = "6D 7D 8D 9D"    b = "6S 7S 8S 9S TS"
+Return:     "双方牌数量不一致！"
+```
